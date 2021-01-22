@@ -1,5 +1,6 @@
-package main;
+package view;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,7 +17,7 @@ public class HibernateConfiguration {
             org.hibernate.cfg.Configuration configuration = new org.hibernate.cfg.Configuration();
             configuration.configure();
             sessionFactory = configuration.buildSessionFactory();
-        } catch (Throwable e) {
+        } catch (HibernateException e) {
             System.out.println("Something goes wrong " + e);
         }
         return sessionFactory;
