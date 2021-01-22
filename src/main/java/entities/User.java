@@ -16,7 +16,8 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private Set<Book> bookList;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String name) {
         this.name = name;
@@ -47,15 +48,13 @@ public class User {
     }
 
     public void addBook(Book book) {
-        if (!bookList.contains(book))
-            bookList.add(book);
+        bookList.add(book);
     }
 
     @Override
     public String toString() {
-        return "User_test{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "User [ " +
+                "name = " + name +
+                " ]";
     }
 }

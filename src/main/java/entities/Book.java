@@ -19,13 +19,14 @@ public class Book {
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "book_to_author",
-    joinColumns =
-            {@JoinColumn(name = "book_id")},
-    inverseJoinColumns =
-            {@JoinColumn(name = "author_id")})
+            joinColumns =
+                    {@JoinColumn(name = "book_id")},
+            inverseJoinColumns =
+                    {@JoinColumn(name = "author_id")})
     private Set<Author> authorId;
 
-    public Book() {}
+    public Book() {
+    }
 
     public Book(String title) {
         this.title = title;
@@ -65,9 +66,9 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                "user='" + user + '\'' +
-                '}';
+        return "Book [ " +
+                "title = \"" + title + '\"' +
+                ", user = " + user +
+                " ]";
     }
 }

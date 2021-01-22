@@ -21,7 +21,7 @@ public class BookDao {
         factory = sessionFactory;
     }
 
-    public void addBook(String  title) {
+    public void addBook(String title) {
         Transaction transaction = null;
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
@@ -45,7 +45,7 @@ public class BookDao {
 
     public List<Book> getAllBooks() {
         List<Book> bookList = null;
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             bookList = session.createQuery("FROM Book").list();
         } catch (HibernateException exception) {
             exception.printStackTrace();
@@ -55,7 +55,7 @@ public class BookDao {
 
     public void changeBookTitle(int id, String newTitle) {
         Transaction transaction = null;
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             Book book = getBookById(id);
             book.setTitle(newTitle);
@@ -70,7 +70,7 @@ public class BookDao {
 
     public void deleteBook(int id) {
         Transaction transaction = null;
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             Book book = getBookById(id);
             session.delete(book);
@@ -99,7 +99,7 @@ public class BookDao {
 
     public List<String> getAllUserBooks(int userId) {
         List<String> bookList = null;
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             bookList = session.createQuery("SELECT title FROM Book WHERE user = " + userId).list();
         } catch (HibernateException exception) {
             exception.printStackTrace();

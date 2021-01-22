@@ -21,7 +21,7 @@ public class UserDao {
         factory = sessionFactory;
     }
 
-    public void addUser(String  name) {
+    public void addUser(String name) {
         Transaction transaction = null;
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
@@ -46,7 +46,7 @@ public class UserDao {
     public List<User> getAllUsers() {
         List<User> userList = null;
 
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             userList = session.createQuery("FROM User").list();
         } catch (HibernateException exception) {
             exception.printStackTrace();
@@ -57,7 +57,7 @@ public class UserDao {
     public void changeUserName(int id, String newName) {
         Transaction transaction = null;
 
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             User user = getUserById(id);
             user.setName(newName);
@@ -72,7 +72,7 @@ public class UserDao {
 
     public void deleteUser(int id) {
         Transaction transaction = null;
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             User user = getUserById(id);
             session.delete(user);

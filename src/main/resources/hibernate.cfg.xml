@@ -9,7 +9,7 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">mylittlepony</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <mapping class="entities.Book"/>
         <mapping class="entities.Author"/>
         <mapping class="entities.User"/>

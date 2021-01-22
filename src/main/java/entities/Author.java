@@ -16,7 +16,8 @@ public class Author {
     @ManyToMany(mappedBy = "authorId")
     private Set<Book> bookId;
 
-    public Author() {}
+    public Author() {
+    }
 
     public Author(String name) {
         this.name = name;
@@ -48,9 +49,8 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author_test{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Author [ " +
+                "name = " + name +
+                " ]";
     }
 }

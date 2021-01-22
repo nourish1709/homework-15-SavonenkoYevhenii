@@ -20,7 +20,7 @@ public class AuthorDao {
         factory = sessionFactory;
     }
 
-    public void addAuthor(String  name) {
+    public void addAuthor(String name) {
         Transaction transaction = null;
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
@@ -42,10 +42,10 @@ public class AuthorDao {
         return author;
     }
 
-    public List<Author>  getAllAuthors() {
+    public List<Author> getAllAuthors() {
         List<Author> authorList = null;
 
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             authorList = session.createQuery("FROM Author").list();
         } catch (HibernateException exception) {
             exception.printStackTrace();
@@ -56,7 +56,7 @@ public class AuthorDao {
     public void changeAuthorName(int id, String newName) {
         Transaction transaction = null;
 
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             Author author = getAuthorById(id);
             author.setName(newName);
@@ -71,7 +71,7 @@ public class AuthorDao {
 
     public void deleteAuthor(int id) {
         Transaction transaction = null;
-        try (Session session = factory.openSession()){
+        try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
             Author author = getAuthorById(id);
             session.delete(author);
